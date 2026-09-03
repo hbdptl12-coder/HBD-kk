@@ -137,8 +137,8 @@ export const birthdayData = {
 
   // Music configuration (Optional audio player)
   music: {
-    title: "Best Friend Birthday Vibe",
-    artist: "Acoustic Warmth",
-    src: "/music/birthday-song.mp3"
+    title: "Sapphire ✨",
+    artist: "Special Birthday Edition",
+    src: "./sapphire.mp3"
   }
 };

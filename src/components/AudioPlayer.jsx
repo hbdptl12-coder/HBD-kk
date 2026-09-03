@@ -92,22 +92,21 @@ export default function AudioPlayer() {
 
   const togglePlay = () => {
     if (isPlaying) {
-      if (audioRef.current && !audioRef.current.error) {
+      if (audioRef.current) {
         audioRef.current.pause();
       }
       stopSynthAudio();
       setIsPlaying(false);
     } else {
-      if (audioRef.current && !audioRef.current.error && audioRef.current.readyState >= 2) {
+      if (audioRef.current) {
         audioRef.current.play().then(() => {
           setIsPlaying(true);
-        }).catch(() => {
-          // Fallback to ambient Web Audio API
+        }).catch((err) => {
+          console.warn("Audio play fallback:", err);
           playSynthAudio();
           setIsPlaying(true);
         });
       } else {
-        // Fallback ambient audio
         playSynthAudio();
         setIsPlaying(true);
       }
